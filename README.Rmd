@@ -1,0 +1,55 @@
+---
+title: "README"
+author: "Cerulean"
+date: "2022-08-28"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(DT, warn.conflicts=FALSE)
+```
+
+```{r lib, warning=FALSE}
+library(magrittr)
+library(dplyr, warn.conflicts=FALSE)
+library(ggplot2)
+library(Thematic, warn.conflicts=FALSE)
+```
+
+## Purpose
+
+This is a simple package for pre-formatted and easier usability with GT, DT, and GG plots when generating documentation for reports and research. 
+
+
+## GT
+```{r gt.iris}
+iris%>%
+  filter(Species=="virginica")%>%
+  select(-Species)%>%
+  slice_head(n=10)%>%
+   tabGT(table_title = "Iris Virginica",
+         table_subtitle = "Ten Observations from Edgar Anderson's Iris Data",
+         source_doc = "A southern wetland species occurring from Virginia to Florida and Texas, Iris virginica is 2 feet (60 cm) tall with bright green leaves that often lie on the ground or water. [Lichvar, R.W. 2013. The National Wetland Plant List: 2013 wetland ratings. Phytoneuron 2013-49: 1-241]")
+```
+
+## DT
+```{r dt.iris}
+iris%>%
+  filter(Species=="setosa")%>%
+  select(-Species)%>%
+  tabDT(table_number = "Table 1:",
+        table_title = "Iris Setosa")
+```
+
+## Visual Thematic
+```{r}
+iris%>%
+  ggplot()+
+  geom_point(aes(x=Sepal.Width,y=Sepal.Length,color=Species))+
+  scale_color_manual(values = Vir(3))+
+  gg_tool(title_label = "Iris Species Scatterplot",
+          subtitle_label = "Based on Sepal Length and Width",
+          x_label = "Width (cm)",
+          y_label = "Length (cm)")
+```
