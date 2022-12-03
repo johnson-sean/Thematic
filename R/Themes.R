@@ -15,7 +15,7 @@
 Cer <- function(n=1){
   try(if({{n}} !=1) stop("Input should be the value 1"))
   #color
-  color_scheme = "#007367"
+  color_scheme = "#0197F6"
   usecol(pal=color_scheme)
 }
 
@@ -35,7 +35,7 @@ Cer_Div <- function(n,a=NA){
   try(if({{n}}<2) stop("Not Enough Steps"))
   #color palette
   color_scheme = c("#B2B5B6","white","#0197F6")
-  #generate palette with n steps ||  Gray -> White -> Green
+  #generate palette with n steps
   usecol(pal=color_scheme,{{n}},{{a}})
 }
 
@@ -54,7 +54,7 @@ Cer_Cts <- function(n,a=NA){
   try(if({{n}}<2) stop("Not Enough Steps"))
   #color palette
   color_scheme = c("white","#0197F6")
-  #generate palette with n steps ||  White -> Green
+  #generate palette with n steps ||  White -> Blue
   usecol(pal=color_scheme,{{n}},{{a}})
 }
 
