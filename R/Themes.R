@@ -154,7 +154,7 @@ GYR <- function(n=3,a=NA){
 #' @import ggplot2
 #' @import rlang
 #' @examples
-gg_tool <- function(complete_themes = theme_bw(),
+gg_tool <- function(complete_themes = theme_minimal(),
                     title_label = "",
                     subtitle_label = "",
                     title_caption = "",
